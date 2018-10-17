@@ -1,0 +1,24 @@
+$(document).ready(function(){
+	$('#generate-password').click(function(){
+
+		var names = ["list1", "list2", "list3", "list4"];
+
+		var first = names[Math.floor(Math.random() * names.length)];
+		names.splice(names.indexOf(first), 1);
+
+		var second = names[Math.floor(Math.random() * names.length)];
+		names.splice(names.indexOf(second), 1);
+
+		var lists = {
+			"list1": ['nauseating', 'store', 'grab', 'grandiose', 'cushion', 'female', 'land', 'drain', 'stupendous', 'cemetery', 'head', 'abstracted', 'offbeat', 'nail', 'deceive', 'expert', 'general', 'harass', 'cloth', 'toy', 'psychedelic', 'sky', 'exclusive', 'pot', 'seemly', 'cake', 'route', 'tense', 'hot', 'mere', 'expand', 'blue', 'wry', 'gleaming', 'transport', 'gruesome', 'afford', 'likeable', 'produce', 'impress', 'request', 'desire', 'voyage', 'filthy', 'inject', 'flimsy', 'frail', 'yoke', 'hollow', 'abhorrent', 'fluttering', 'follow', 'flock', 'yellow', 'broken', 'rock', 'playground', 'bells', 'fail', 'ubiquitous', 'story', 'oatmeal', 'silent', 'relation', 'holiday', 'guarantee', 'loving', 'obnoxious', 'rings', 'creepy', 'spot', 'tender', 'guitar', 'square', 'aromatic', 'wealth', 'class', 'unbiased', 'day', 'spiteful', 'fog', 'buzz', 'branch', 'pig', 'subtract', 'messy', 'key', 'boring', 'pointless', 'sleep', 'time', 'crow', 'chalk', 'switch', 'wasteful', 'sack', 'texture', 'manage', 'crowded', 'star'],
+			"list2": ['oceanic', 'jittery', 'oranges', 'tongue', 'sock', 'blot', 'provide', 'alive', 'trade', 'noisy', 'gun', 'scarce', 'part', 'ruthless', 'spray', 'spotted', 'battle', 'ablaze', 'tray', 'bump', 'action', 'zesty', 'quixotic', 'substantial', 'deserted', 'salty', 'flashy', 'bloody', 'machine', 'company', 'new', 'fresh', 'untidy', 'lazy', 'attraction', 'erect', 'scent', 'eggnog', 'record', 'lackadaisical', 'sin', 'overjoyed', 'standing', 'mature', 'warn', 'crook', 'taste', 'earth', 'cut', 'fierce', 'hug', 'gleaming', 'fancy', 'grip', 'fortunate', 'even', 'receptive', 'orange', 'wrong', 'icky', 'overwrought', 'live', 'thread', 'horse', 'chicken', 'tank', 'water', 'cowardly', 'bath', 'fabulous', 'rich', 'second-hand', 'sugar', 'aboard', 'voiceless', 'chilly', 'heavy', 'cars', 'decorate', 'doubt', 'open', 'admire', 'toes', 'produce', 'ritzy', 'acoustic', 'rest', 'gentle', 'discovery', 'stitch', 'cuddly', 'print', 'limit', 'languid', 'joyous', 'smash', 'thumb', 'belief', 'quiver', 'terrific'],
+			"list3": ['street', 'pets', 'horn', 'jeans', 'actor', 'historical', 'call', 'drain', 'attractive', 'petite', 'hurried', 'useless', 'ritzy', 'scintillating', 'bells', 'zippy', 'fork', 'oven', 'apathetic', 'fragile', 'claim', 'creator', 'juggle', 'rightful', 'office', 'cynical', 'kiss', 'imported', 'extra-small', 'land', 'rhyme', 'wrap', 'crayon', 'colour', 'measure', 'cluttered', 'pumped', 'nutritious', 'program', 'kindly', 'combative', 'riddle', 'raise', 'name', 'ghost', 'powerful', 'sturdy', 'income', 'learn', 'giant', 'calm', 'stimulating', 'thick', 'use', 'demonic', 'swanky', 'miniature', 'force', 'board', 'nonstop', 'aboard', 'frighten', 'elderly', 'blade', 'toothsome', 'zinc', 'weary', 'mitten', 'hair', 'present', 'brash', 'quirky', 'ablaze', 'complex', 'point', 'side', 'drink', 'steadfast', 'teeny-tiny', 'fear', 'rambunctious', 'changeable', 'lethal', 'dress', 'judicious', 'shock', 'glass', 'activity', 'control', 'space', 'employ', 'sleep', 'wish', 'calculating', 'numberless', 'salty', 'sour', 'friendly', 'spot', 'supportive'],
+			"list4": ['shelter', 'high-pitched', 'turn', 'lamp', 'admit', 'scissors', 'four', 'piquant', 'meek', 'impress', 'wretched', 'marked', 'badge', 'lively', 'valuable', 'paltry', 'store', 'devilish', 'unadvised', 'peel', 'cup', 'whip', 'matter', 'railway', 'crazy', 'daily', 'breakable', 'finger', 'dad', 'utopian', 'guitar', 'literate', 'recess', 'wise', 'nonchalant', 'salty', 'vanish', 'thaw', 'future', 'wood', 'suggest', 'new', 'joyous', 'cuddly', 'rabbits', 'motionless', 'toe', 'roomy', 'zany', 'glue', 'elderly', 'children', 'overconfident', 'upset', 'sleet', 'stale', 'cautious', 'plantation', 'fuzzy', 'goofy', 'account', 'lewd', 'wax', 'itchy', 'jumbled', 'crack', 'ship', 'previous', 'giddy', 'earthquake', 'incandescent', 'sweater', 'screeching', 'cluttered', 'complain', 'snore', 'efficient', 'unlock', 'chop', 'rate', 'selfish', 'consist', 'common', 'milk', 'kindly', 'mist', 'cute', 'board', 'handsome', 'glamorous', 'art', 'flock', 'look', 'ring', 'fill', 'nice', 'glib', 'development', 'hateful', 'materialistic'],
+			"punc" : ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')']
+		};
+
+		$('#password').val(lists[first][Math.floor(Math.random() * lists[first].length)] + lists['punc'][Math.floor(Math.random() * 4)] + lists[second][Math.floor(Math.random() * lists[second].length)] + Math.floor(Math.random() * 10) + "" + Math.floor(Math.random() * 10) + "" + Math.floor(Math.random() * 10) + "" + lists['punc'][Math.floor(Math.random() * 4)]);
+	});
+
+	$('#generate-password').trigger('click');
+});
